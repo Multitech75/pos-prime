@@ -205,6 +205,10 @@ def get_invoice_option_lists():
         "sales_partners": frappe.get_all(
             "Sales Partner", fields=["name"], limit_page_length=100,
             ignore_permissions=True, order_by="name asc",
+        ),      
+        "sales_persons": frappe.get_all(
+            "Sales Person", fields=["name"], limit_page_length=100,
+            ignore_permissions=True, order_by="name asc",
         ),
         "projects": frappe.get_all(
             "Project", filters={"status": "Open"}, fields=["name"],
