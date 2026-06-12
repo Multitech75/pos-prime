@@ -35,6 +35,11 @@ function update(field: string, value: any) {
   cartStore.setInvoiceOptions({ [field]: value || null })
 }
 
+function setPrimarySalesPerson(name: string) {
+  cartStore.setInvoiceOptions({
+    sales_team: name ? [{ sales_person: name, allocated_percentage: 100 }] : []
+  })
+}
 onMounted(async () => {
   // Fetch link options in parallel
   try {
@@ -85,7 +90,7 @@ watch(() => customerStore.selectedContact, (val) => update('contact_person', val
 
 const hasAnyOption = computed(() => {
   const o = form.value
-  return !!(o.sales_partner || o.project || o.remarks || o.po_no || o.shipping_rule
+  return !!(o.sales_team || o.sales_partner || o.project || o.remarks || o.po_no || o.shipping_rule
     || o.customer_address || o.shipping_address_name || o.contact_person
     || o.set_posting_time || o.payment_terms_template || o.tc_name)
 })
