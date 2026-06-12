@@ -8,7 +8,6 @@ Built for speed, touch screens, and real retail workflows.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Frappe](https://img.shields.io/badge/Frappe-v14%20|%20v15%20|%20v16-blue)](https://frappeframework.com)
-[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red)](https://github.com/sponsors/ravindu2012) [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/ravindu2012)
 
 </div>
 
@@ -310,7 +309,7 @@ All 12 layout fields (Section Break, Column Break) are structural and only relev
 
 ```bash
 cd $PATH_TO_YOUR_BENCH
-bench get-app https://github.com/ravindu2012/pos-prime --branch main
+bench get-app https://github.com/Multitech75/pos-prime --branch main
 bench --site your-site.localhost install-app pos_prime
 ```
 
@@ -363,10 +362,3 @@ GPL v3 - see [license.txt](license.txt)
 
 ---
 
-<div align="center">
-
-**A [Raveforge](https://github.com/ravindu2012) Product**
-
-[![Sponsor on GitHub](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red?style=for-the-badge)](https://github.com/sponsors/ravindu2012) [![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/ravindu2012)
-
-</div>
