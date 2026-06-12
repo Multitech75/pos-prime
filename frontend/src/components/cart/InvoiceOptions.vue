@@ -18,6 +18,7 @@ const sessionStore = usePosSessionStore()
 const expanded = ref(false)
 
 // Link targets
+const salesPersons = ref<string[]>([])
 const salesPartners = ref<string[]>([])
 const projects = ref<string[]>([])
 const shippingRules = ref<string[]>([])
@@ -39,6 +40,7 @@ onMounted(async () => {
   try {
     const data = await call('pos_prime.api.pos_session.get_invoice_option_lists')
     if (data) {
+      salesPersons.value = (data.sales_persons || []).map((r: any) => r.name)
       salesPartners.value = (data.sales_partners || []).map((r: any) => r.name)
       projects.value = (data.projects || []).map((r: any) => r.name)
       shippingRules.value = (data.shipping_rules || []).map((r: any) => r.name)
@@ -154,6 +156,18 @@ const inputClass = "w-full text-xs border border-gray-200 dark:border-gray-700 b
         >
           <option value="">None</option>
           <option v-for="sp in salesPartners" :key="sp" :value="sp">{{ sp }}</option>
+        </select>
+      </div>
+      <!-- Sales Person -->
+      <div v-if="salesPersons.length > 0" class="pt-2">
+        <label class="text-[10px] text-gray-500 dark:text-gray-400">{{ __('Sales Person') }}</label>
+        <select
+          :value="form.sales_team?.[0]?.sales_person || ''"
+          @change="setPrimarySalesPerson(($event.target as HTMLSelectElement).value)"
+          :class="selectClass"
+        >
+          <option value="">None</option>
+          <option v-for="p in salesPersons" :key="p" :value="p">{{ p }}</option>
         </select>
       </div>
 
