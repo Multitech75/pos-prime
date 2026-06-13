@@ -143,6 +143,12 @@ def create_return_invoice(source_invoice):
             frappe.throw(_("Return invoice creation is not supported in this ERPNext version."))
 
         return_doc = make_sales_return(source_invoice)
+
+		# Save the draft so it gets a real database name
+        return_doc.flags.ignore_permissions = True
+        return_doc.insert()
+        frappe.db.commit()  # Ensure it's committed before submit_return_invoice reads it
+
         return {
             "name": return_doc.name,
             "items": [
